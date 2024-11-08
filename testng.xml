@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <test name="TestSuite">
+        <classes>
+            <!-- Specify the test classes to run -->
+            <class name="testcases.LoginPageTest" />
+            <class name="testcases.BusinessHourTest" />
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,24 @@
+{
+  "uuid": "ff950540-258f-4d19-84b3-61016ed73d1c",
+  "name": "testcases.LoginPageTest.setUp",
+  "children": [
+    "233ff1e6-3c77-4fd8-a203-4149c9bc0056"
+  ],
+  "description": "",
+  "befores": [
+    {
+      "name": "setUp",
+      "status": "passed",
+      "stage": "finished",
+      "description": "",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1720020736683,
+      "stop": 1720020879244
+    }
+  ],
+  "afters": [],
+  "start": 1720020736682,
+  "stop": 1720020879244
+}

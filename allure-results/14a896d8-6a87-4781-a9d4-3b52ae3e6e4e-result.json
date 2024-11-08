@@ -1,0 +1,61 @@
+{
+  "uuid": "14a896d8-6a87-4781-a9d4-3b52ae3e6e4e",
+  "historyId": "a6af1ef0ba9b752e256599b429a3c928",
+  "fullName": "testcases.LoginPageTest.search",
+  "labels": [
+    {
+      "name": "package",
+      "value": "testcases.LoginPageTest"
+    },
+    {
+      "name": "testClass",
+      "value": "testcases.LoginPageTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "search"
+    },
+    {
+      "name": "parentSuite",
+      "value": "Default Suite"
+    },
+    {
+      "name": "suite",
+      "value": "klinkcloud"
+    },
+    {
+      "name": "subSuite",
+      "value": "testcases.LoginPageTest"
+    },
+    {
+      "name": "host",
+      "value": "MacBooks-MacBook-Pro.local"
+    },
+    {
+      "name": "thread",
+      "value": "12417@MacBooks-MacBook-Pro.local.main(1)"
+    },
+    {
+      "name": "framework",
+      "value": "testng"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    }
+  ],
+  "links": [],
+  "name": "search",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [],
+  "attachments": [],
+  "parameters": [],
+  "start": 1720020977516,
+  "stop": 1720020990052
+}
