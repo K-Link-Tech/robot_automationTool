@@ -46,13 +46,13 @@ public class BusinessHourTest {
         buttonCreateNew.shouldBe(visible).click();
         businesshr.inputName.setValue(BusinessHrName);
         businesshr.inputDesc.setValue(Desc);
-        businesshr.monfromtime.setValue("09:00");
+        businesshr.Monfromtime.setValue("09:00");
         businesshr.montotime.setValue("16:30");
         businesshr.tuefromtime.setValue("09:00");
         businesshr.Tuetotime.setValue("16:30");
         businesshr.wedfromtime.setValue("09:00");
         businesshr.WebToTime.setValue("16:30");
-        businesshr.thurfromtime.setValue("09:00");
+        businesshr.ThurFromTime.setValue("09:00");
         businesshr.ThurToTime.setValue("16:30");
         businesshr.Fridayfromtime.setValue("09:00");
         businesshr.FridayToTime.setValue("16:30");
@@ -83,13 +83,13 @@ public class BusinessHourTest {
     public void DefaultBusinessHour() throws InterruptedException
     {
         Thread.sleep(5000);
-        businesshr.monfromtime.setValue("09:00");
+        businesshr.Monfromtime.setValue("09:00");
         businesshr.montotime.setValue("17:00");
         businesshr.tuefromtime.setValue("09:00");
         businesshr.Tuetotime.setValue("17:00");
         businesshr.wedfromtime.setValue("09:00");
         businesshr.wedtotime.setValue("17:00");
-        businesshr.thurfromtime.setValue("09:00");
+        businesshr.ThurFromTime.setValue("09:00");
         businesshr.ThurToTime.setValue("17:00");
         businesshr.Fridayfromtime.setValue("09:00");
         businesshr.FridayToTime.setValue("17:00");
@@ -134,13 +134,13 @@ public class BusinessHourTest {
     public void Arya() throws  InterruptedException{
         businesshr.clickThreeDots("Arya Stark Business Hour");
         businesshr.clickEditOption();
-        businesshr.monfromtime.setValue("09:00");
+        businesshr.Monfromtime.setValue("09:00");
         businesshr.montotime.setValue("17:00");
         businesshr.Tuefromtime.setValue("09:00");
         businesshr.Tuetotime.setValue("17:00");
         businesshr.wedfromtime.setValue("09:00");
         businesshr.wedtotime.setValue("17:00");
-        businesshr.thurfromtime.setValue("09:00");
+        businesshr.ThurFromTime.setValue("09:00");
         businesshr.thurtotime.setValue("17:00");
         businesshr.Fridayfromtime.setValue("09:00");
         businesshr.FriTotime.setValue("17:00");
@@ -153,15 +153,15 @@ public class BusinessHourTest {
     @Test(dependsOnMethods =  "Arya")
     public void NangHmu() throws InterruptedException
     {
-        businesshr.clickThreeDots("NangHmu: Business Hour Setting");
+        businesshr.clickThreeDots("NangHmu: Business Hour");
         businesshr.clickEditOption();
-        businesshr.monfromtime.setValue("09:00");
+        businesshr.Monfromtime.setValue("09:00");
         businesshr.montotime.setValue("16:30");
         businesshr.tuefromtime.setValue("09:00");
         businesshr.Tuetotime.setValue("10:00");
         businesshr.wedfromtime.setValue("09:00");
         businesshr.wedtotime.setValue("10:00");
-        businesshr.thurfromtime.setValue("09:00");
+        businesshr.ThurFromTime.setValue("09:00");
         businesshr.thurtotime.setValue("10:00");
         businesshr.Fridayfromtime.setValue("09:00");
         businesshr.FridayToTime.setValue("10:00");
@@ -187,7 +187,7 @@ public class BusinessHourTest {
         }
         businesshr.wedfromtime.setValue("09:00");
         businesshr.wedtotime.setValue("17:00");
-        businesshr.thurfromtime.setValue("09:00");
+        businesshr.ThurFromTime.setValue("09:00");
         businesshr.ThurToTime.setValue("17:00");
         businesshr.Fridayfromtime.setValue("09:00");
         businesshr.FridayToTime.setValue("17:00");
@@ -211,7 +211,7 @@ public class BusinessHourTest {
             $x("//div[contains(text(),'tue')]").click();
             Thread.sleep(2000);
         }
-        businesshr.monfromtime.setValue("09:00");
+        businesshr.Monfromtime.setValue("09:00");
         businesshr.montotime.setValue("16:30");
         businesshr.Tuefromtime.setValue("09:00");
         businesshr.Tuetotime.setValue("17:00");
