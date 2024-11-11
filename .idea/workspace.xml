@@ -5,41 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9b9a20b-e80c-401e-8f56-e5c539c9f181" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/easycode.ignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/easycode/codebase-v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test Results - _Users_macbookpro_AquaProjects_klinkcloud_testng_xml.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/allure-results/0015ee13-77eb-4774-906e-bcc31137991e-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/allure-results/14a896d8-6a87-4781-a9d4-3b52ae3e6e4e-result.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/allure-results/233ff1e6-3c77-4fd8-a203-4149c9bc0056-result.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/allure-results/5ee10795-316e-406a-8be0-16df9f243bbe-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/allure-results/5fe6adf0-54e2-4f2b-bdfd-83b1235a0007-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/allure-results/78e4a578-88f2-4d80-886e-983b05e7577f-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/allure-results/9db8a12f-b95b-41e5-b7f3-2230e9b2c78f-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/allure-results/c38be45c-cec6-4653-bbb5-39e54623efe6-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/allure-results/c5021918-337e-4efc-a636-161c0227faf4-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/allure-results/ff950540-258f-4d19-84b3-61016ed73d1c-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/browsers.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmltest.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/base/TestBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/klink/cloud/klinkcloud/MainPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/klink/cloud/klinkcloud/MainPageTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/config/Configuration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/BusinessHour.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/testcases/BusinessHourTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/testcases/LoginPageTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/BusinessHour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/BusinessHour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testcases/BusinessHourTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testcases/BusinessHourTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
