@@ -2,262 +2,251 @@ package testcases;
 
 import base.TestBase;
 import com.codeborne.selenide.*;
-import com.codeborne.selenide.conditions.Visible;
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
-import pages.BusinessHour;
-import pages.LoginPage;
 import java.time.Duration;
-import java.util.List;
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byAttribute;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.files.DownloadActions.click;
-import com.codeborne.selenide.Selectors;
+import static com.codeborne.selenide.Selenide.open;
+import static pages.BusinessHour.*;
 
-public class BusinessHourTest {
-    private SelenideElement buttonCreateNew;
-    private BusinessHour businesshr;
-    private ChromeOptions options = new ChromeOptions();
+public class BusinessHourTest extends TestBase {
+    public static SelenideElement buttonEditSave = $x("//*[@id='edit_save_btn']");
+    public static SelenideElement workingdaySave = $x("//*[@id='edit_save_btn']");
+    public static SelenideElement btnOutsidebusinessHr = $x("//*[@id='edit_save_btn']");
 
     @BeforeSuite
     public void setUp() {
-        options.addArguments("--disable-save-password-bubble");
-        options.addArguments("--remote-allow-origins=*");
-
-        Configuration.browserCapabilities = options;
-        Configuration.browserSize = "1280x900";
-        Configuration.holdBrowserOpen = false; // Ensure browser closes after each test
-
-        open(TestBase.url);
-        buttonCreateNew = $x("//button[contains(@class, 'text-white')]");
-        businesshr = new BusinessHour();
+        open(url);
     }
 
     @AfterSuite
     public void tearDown() {
-        Selenide.closeWebDriver();
+        closeWebDriver();
     }
 
-    public void clickCreateNewButton(String BusinessHrName, String Desc) throws InterruptedException {
-        Thread.sleep(3000);
-        buttonCreateNew.shouldBe(visible).click();
-        businesshr.inputName.setValue(BusinessHrName);
-        businesshr.inputDesc.setValue(Desc);
-        businesshr.Monfromtime.setValue("09:00");
-        businesshr.montotime.setValue("16:30");
-        businesshr.tuefromtime.setValue("09:00");
-        businesshr.Tuetotime.setValue("16:30");
-        businesshr.wedfromtime.setValue("09:00");
-        businesshr.WebToTime.setValue("16:30");
-        businesshr.ThurFromTime.setValue("09:00");
-        businesshr.ThurToTime.setValue("16:30");
-        businesshr.Fridayfromtime.setValue("09:00");
-        businesshr.FridayToTime.setValue("16:30");
-        Thread.sleep(3000);
-        businesshr.btnSave.shouldBe(visible).click();
-        businesshr.btnCancel.shouldBe(visible).click();
+    public static void DefaultBusinessHour(String starttime, String endtime) throws InterruptedException
+    {
+        setBusinessHours(starttime,endtime);
+        ClickSaveButton();
     }
 
-    @Test
-    public void AddBusinessHr() throws InterruptedException {
+    public static void clickCreateNewButton(String BusinessHrName, String Desc) throws InterruptedException {
+        Thread.sleep(10000);
+        $(By.xpath("//button[@class='gap-x-2 inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:translate-y-[1px] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-white bg-primary-500 hover:bg-primary-700 active:bg-primary-900 disabled:bg-gray-400 disabled:text-gray-100 py-2 px-4 text-sm rounded-md']")).click();
+        inputName.shouldBe(visible).setValue(BusinessHrName);
+        inputDesc.shouldBe(visible).setValue(Desc);
+        DefaultBusinessHour("09:00","17:00");
+    }
+
+    public static void ClickSaveButton() throws InterruptedException
+    {
+        Thread.sleep(10000);
+        $(By.xpath("//button[@class='gap-x-2 inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:translate-y-[1px] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-white bg-primary-500 hover:bg-primary-700 active:bg-primary-900 disabled:bg-gray-400 disabled:text-gray-100 py-2 px-4 rounded-md text-sm']")).should(enabled).click();
+    }
+
+   @Test
+    public static void AddBusinessHr() throws  InterruptedException{
         clickCreateNewButton("QA Test", "QA Desc");
+        sleep(2000);
     }
 
     //Delete existing business hour (Optional) not required to execute this test suite every time.
     @Test(dependsOnMethods = "AddBusinessHr")
-    public void DeleteBusinessHr() throws InterruptedException
+    public static void DeleteBusinessHr() throws InterruptedException
     {
         clickCreateNewButton("Deleted Testing", "Deleted Testing purpose");
-        Thread.sleep(6000);
-        businesshr.clickThreeDots("Deleted Testing");
-        businesshr.clickDeleteOption();
-        Thread.sleep(10000);
-        businesshr.deleteButton.click();
-        Thread.sleep(5000);
+        clickThreeDots("Deleted Testing");
+        clickDeleteOption();
+        sleep(2000);
+        deleteButton.click();
+        Thread.sleep(2000);
+        switchTo().defaultContent();
     }
-
-    //Default business hour
-    public void DefaultBusinessHour() throws InterruptedException
-    {
-        Thread.sleep(5000);
-        businesshr.Monfromtime.setValue("09:00");
-        businesshr.montotime.setValue("17:00");
-        businesshr.tuefromtime.setValue("09:00");
-        businesshr.Tuetotime.setValue("17:00");
-        businesshr.wedfromtime.setValue("09:00");
-        businesshr.wedtotime.setValue("17:00");
-        businesshr.ThurFromTime.setValue("09:00");
-        businesshr.ThurToTime.setValue("17:00");
-        businesshr.Fridayfromtime.setValue("09:00");
-        businesshr.FridayToTime.setValue("17:00");
-        Thread.sleep(3000);
-        businesshr.btnSave.shouldBe(visible).click();
-        businesshr.btnCancel.shouldBe(visible).click();
-    }
-
-    // Select working day or non-working day (Optional) this test suite is not required to execute every time
-    public void select_unselectDays() throws InterruptedException {
-        if ($x("//div[contains(text(),'mon')]").has(cssClass("bg-primary-50"))) {
-            $x("//div[contains(text(),'mon')]").click();
-        }
-
-        if ($x("//div[contains(text(),'tue')]").has(cssClass("bg-primary-50"))) {
-            $x("//div[contains(text(),'tue')]").click();
-        }
-
-        if ($x("//div[contains(text(),'wed')]").has(cssClass("bg-primary-50"))) {
-            $x("//div[contains(text(),'wed')]").click();
-        }
-
-        if ($x("//div[contains(text(),'thu')]").has(cssClass("bg-primary-50"))) {
-            $x("//div[contains(text(),'thu')]").click();
-        }
-
-        if ($x("//div[contains(text(),'fri')]").has(cssClass("bg-primary-50"))) {
-            $x("//div[contains(text(),'fri')]").click();
-        }
-    }
-
     //Update Default Business Hour
-    @Test(dependsOnMethods = "DeleteBusinessHr")
-    public void GeneralBusinesshr() throws  InterruptedException{
+   @Test(dependsOnMethods = "DeleteBusinessHr")
+    public static void GeneralBusinesshr() throws  InterruptedException{
         Thread.sleep(10000);
-        businesshr.clickThreeDots("General Business Hour");
-        businesshr.clickEditOption();
-        DefaultBusinessHour();
-    }
-    //Configure Inside business Hour
-    @Test(dependsOnMethods = "GeneralBusinesshr")
-    public void Arya() throws  InterruptedException{
-        businesshr.clickThreeDots("Arya Stark Business Hour");
-        businesshr.clickEditOption();
-        businesshr.Monfromtime.setValue("09:00");
-        businesshr.montotime.setValue("17:00");
-        businesshr.Tuefromtime.setValue("09:00");
-        businesshr.Tuetotime.setValue("17:00");
-        businesshr.wedfromtime.setValue("09:00");
-        businesshr.wedtotime.setValue("17:00");
-        businesshr.ThurFromTime.setValue("09:00");
-        businesshr.thurtotime.setValue("17:00");
-        businesshr.Fridayfromtime.setValue("09:00");
-        businesshr.FriTotime.setValue("17:00");
-        Thread.sleep(3000);
-        businesshr.btnSave.shouldBe(visible).click();
-        businesshr.btnCancel.shouldBe(visible).click();
-    }
-
-    //Configure Outside business hour
-    @Test(dependsOnMethods =  "Arya")
-    public void NangHmu() throws InterruptedException
-    {
-        businesshr.clickThreeDots("NangHmu: Business Hour");
-        businesshr.clickEditOption();
-        businesshr.Monfromtime.setValue("09:00");
-        businesshr.montotime.setValue("16:30");
-        businesshr.tuefromtime.setValue("09:00");
-        businesshr.Tuetotime.setValue("10:00");
-        businesshr.wedfromtime.setValue("09:00");
-        businesshr.wedtotime.setValue("10:00");
-        businesshr.ThurFromTime.setValue("09:00");
-        businesshr.thurtotime.setValue("10:00");
-        businesshr.Fridayfromtime.setValue("09:00");
-        businesshr.FridayToTime.setValue("10:00");
-        Thread.sleep(3000);
-        businesshr.btnSave.shouldBe(visible).click();
-        businesshr.btnCancel.shouldBe(visible).click();
+        clickThreeDots("General Business Hour");
+        clickEditOption();
+        DefaultBusinessHour("09:00","18:00");
     }
 
     //Select non-working days
-    @Test(dependsOnMethods =  "NangHmu")
-    public void NonWorkingDays() throws InterruptedException
-    {
-        businesshr.clickThreeDots("Working Hour In Myanmar");
-        businesshr.clickEditOption();
-        if ($x("//div[contains(text(),'mon')]").has(cssClass("bg-primary-50"))) {
-            $x("//div[contains(text(),'mon')]").click();
+    @Test(dependsOnMethods = "GeneralBusinesshr")
+    public static void NonWorkingDays() throws InterruptedException {
+        // Perform the required actions within the frame
+        clickThreeDots("Working Hour In Myanmar");
+        clickEditOption();
+
+        // Check and unselect "Mon" if it is already selected
+        if ($(".cursor-pointer", 1).has(cssClass("border-primary-500"))) {
+            $(".cursor-pointer", 1).click();
             Thread.sleep(2000);
+            System.out.println("Mon was selected and is now unselected.");
         }
 
-        if ($x("//div[contains(text(),'tue')]").has(cssClass("bg-primary-50"))) {
-            $x("//div[contains(text(),'tue')]").click();
+        // Check and unselect "Tue" if it is already selected
+        if ($(".cursor-pointer", 2).has(cssClass("border-primary-500"))) {
+            $(".cursor-pointer", 2).click();
             Thread.sleep(2000);
+            System.out.println("Tue was selected and is now unselected.");
         }
-        businesshr.wedfromtime.setValue("09:00");
-        businesshr.wedtotime.setValue("17:00");
-        businesshr.ThurFromTime.setValue("09:00");
-        businesshr.ThurToTime.setValue("17:00");
-        businesshr.Fridayfromtime.setValue("09:00");
-        businesshr.FridayToTime.setValue("17:00");
-        Thread.sleep(3000);
-        businesshr.btnSave.shouldBe(visible).click();
-        businesshr.btnCancel.shouldBe(visible).click();
+        //Add your nonworking test data as above code
+
+        Thread.sleep(10000);
+        switchTo().defaultContent();
+        $(By.xpath("//button[@class='gap-x-2 inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:translate-y-[1px] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-white bg-primary-500 hover:bg-primary-700 active:bg-primary-900 disabled:bg-gray-400 disabled:text-gray-100 py-2 px-4 text-sm rounded-md']")).click();
     }
 
     //Select working days
     @Test(dependsOnMethods =  "NonWorkingDays")
-    public void WorkingDays() throws InterruptedException
+    public static void WorkingDays() throws InterruptedException
     {
-        businesshr.clickThreeDots("NangHmu: Myanmar Thingyun");
-        businesshr.clickEditOption();
-        if ($x("//div[contains(text(),'mon')]").has(cssClass("bg-primary-50"))) {
-            $x("//div[contains(text(),'mon')]").click();
+        clickThreeDots("NangHmu: Myanmar Thingyun");
+        clickEditOption();
+        // Check and unselect "Wed" if it is already selected
+        if ($(".cursor-pointer", 3).has(cssClass("border-primary-500"))) {
             Thread.sleep(2000);
+            $(".cursor-pointer", 3).click();
+            System.out.println("Wed was selected and is now unselected.");
         }
 
-        if ($x("//div[contains(text(),'tue')]").has(cssClass("bg-primary-50"))) {
-            $x("//div[contains(text(),'tue')]").click();
+        // Check and unselect "Thu" if it is already selected
+        if ($(".cursor-pointer", 4).has(cssClass("border-primary-500"))) {
             Thread.sleep(2000);
+            $(".cursor-pointer", 4).click();
+            System.out.println("Thur was selected and is now unselected.");
         }
-        businesshr.Monfromtime.setValue("09:00");
-        businesshr.montotime.setValue("16:30");
-        businesshr.Tuefromtime.setValue("09:00");
-        businesshr.Tuetotime.setValue("17:00");
-        Thread.sleep(3000);
-        businesshr.btnSave.shouldBe(visible).click();
-        businesshr.btnCancel.shouldBe(visible).click();
+        //Add your nonworking test data as above code
+        Thread.sleep(10000);
+        workingdaySave.shouldBe(visible).click();
+        switchTo().defaultContent();
     }
 
+    //Add holidays --- Start
     @Test(dependsOnMethods = "WorkingDays")
-    public void AddHoliday() throws InterruptedException
-    {
-        businesshr.clickThreeDots("Holiday Suite");
-        businesshr.clickEditOption();
+    public static void AddHoliday() throws InterruptedException {
+        // Navigate to the holiday suite and edit
+        clickThreeDots("Holiday Suite");
+        clickEditOption();
+        //If need, add Thread.Sleep(5000) when not element found "Holidays
+        Thread.sleep(7000);
+        switchTo().defaultContent();
+        $$(".inline-flex.items-center.justify-center.whitespace-nowrap")
+                .findBy(text("Holidays"))
+                        .shouldBe(visible, Duration.ofSeconds(100))
+                                .click();
 
-       $$(".inline-flex.items-center.justify-center.whitespace-nowrap")
-              .findBy(text("Holidays"))
-              .click();
-
-        $$(".gap-x-2.inline-flex.items-center.justify-center.whitespace-nowrap.font-medium")
-                .findBy(text("+ Add holiday"))
+        // Wait for and click the "+ Add holiday" button
+        SelenideElement addHolidayButton = $$(".gap-x-2.inline-flex.items-center.justify-center.whitespace-nowrap.font-medium")
+                .findBy(text("+ Add holiday"));
+        addHolidayButton.shouldBe(visible, Duration.ofSeconds(1000))  // Wait for visibility
+                .shouldBe(enabled, Duration.ofSeconds(10)) // Ensure it is enabled
+                .scrollIntoView(true)  // Ensure it's in the viewport
                 .click();
-
-        $$("button[type='button'][aria-haspopup='dialog']")
-                .findBy(text("Choose date"))
-                 .shouldBe(visible).click();
-
-        $("button[type='button'][data-state='open']").shouldBe(visible);  // Wait for date picker to fully open
-
-        // Select Nov 14
-        $$("div.calendar-day").findBy(text("14")).shouldBe(visible).click();
-
-        // Open the date picker again for Nov 15
-        $("button[type='button'][aria-haspopup='dialog']")
-                .shouldBe(visible)
-                .click();
-
-        $("button[type='button'][data-state='open']").shouldBe(visible);  // Wait for date picker to fully open
-
-        // Select Nov 15
-        $$("div.calendar-day").findBy(text("15")).shouldBe(visible).click();
-
-        // Click "Nov 15"
 
         Thread.sleep(3000);
-        businesshr.btnSave.shouldBe(visible).click();
-        businesshr.btnCancel.shouldBe(visible).click();
+        SelenideElement chooseDateButton = $$("button[type='button'][aria-haspopup='dialog']")
+                .findBy(text("Choose date"));
+        chooseDateButton.shouldBe(visible, Duration.ofSeconds(10))  // Wait for the button to be visible
+                .shouldBe(enabled, Duration.ofSeconds(10)) // Ensure it's clickable
+                .click();
 
+        // Wait for the button with data-state='open' to be visible
+        $("button[type='button'][data-state='open']")
+                .shouldBe(visible, Duration.ofSeconds(20))
+                .click(); // Wait up to 10 seconds for visibility
+
+        selectCalendarDays("24", "Nov Holiday");
+        selectCalendarDays("25", "Nov 25");
+        // Add holidays here for your test data
+        ClickSaveButton();
+        switchTo().defaultContent();
     }
+
+    // Select calendar days dynamically
+    public static void selectCalendarDays(String day, String HolidayName)  {
+        // Wait for and click the "+ Add holiday" button
+        SelenideElement addHolidayButton = $$(".gap-x-2.inline-flex.items-center.justify-center.whitespace-nowrap.font-medium")
+                .findBy(text("+ Add holiday"));
+        addHolidayButton.shouldBe(visible, Duration.ofSeconds(60))  // Wait for visibility
+                .shouldBe(enabled, Duration.ofSeconds(60)) // Ensure it is enabled
+                .scrollIntoView(true)  // Ensure it's in the viewport
+                .click();
+
+        // Wait for the dialog box to appear and click the "Choose date" button
+        SelenideElement chooseDateButton = $$("button[type='button'][aria-haspopup='dialog']")
+                .findBy(text("Choose date"));
+        chooseDateButton.shouldBe(visible, Duration.ofSeconds(10))  // Wait for the button to be visible
+                .shouldBe(enabled, Duration.ofSeconds(10)) // Ensure it's clickable
+                .click();
+
+        // Wait for the button with data-state='open' to be visible
+        $("button[type='button'][data-state='open']")
+                .shouldBe(visible, Duration.ofSeconds(10)); // Wait up to 10 seconds for visibility
+
+        // Input calendar day and holiday name dynamically
+        $(By.xpath("//button[@name='day' and contains(@class, 'rdp-button_reset') and text()='"+day+"']")).click();
+        $(By.xpath("//input[@type='text' and contains(@class, 'focus:outline-none')]"))
+                .setValue(HolidayName)
+                .pressEnter();
+    }
+    //Add holidays --- End
+
+    //Configure Inside business Hour
+  @Test(dependsOnMethods = "AddHoliday")
+  public static void Arya() throws  InterruptedException {
+        clickThreeDots("Arya Stark Business Hour");
+        clickEditOption();
+      CustomizedBusinessHr("09:00","17:00","09:00","17:00","09:00","17:00","09:00","17:00","09:00","17:00");
+        switchTo().defaultContent();
+        buttonEditSave.shouldBe(visible, Duration.ofSeconds(20));
+        Thread.sleep(2000);
+  }
+    //Configure Outside business hour
+   @Test(dependsOnMethods =  "Arya")
+    public static void NangHmu() throws InterruptedException
+    {
+        clickThreeDots("NangHmu: Business Hour");
+        clickEditOption();
+        CustomizedBusinessHr("10:00","11:00","10:00","11:00","10:00","11:00","10:00","11:00","10:00","11:00");
+        switchTo().defaultContent();
+        btnOutsidebusinessHr.shouldBe(visible,Duration.ofSeconds(20));
+        Thread.sleep(2000);
+    }
+
+    //Customize add test data for outside and inside business hour
+    // Method to customize business hours
+    public static void CustomizedBusinessHr (
+            String monFrom, String monTo,
+            String tueFrom, String tueTo,
+            String wedFrom, String wedTo,
+            String thurFrom, String thurTo,
+            String friFrom, String friTo) throws InterruptedException {
+        Thread.sleep(5000);
+        // Switch to the default frame if necessary
+        switchTo().defaultContent();
+
+        // Set Monday's hours
+        monFromTime.shouldBe(visible, Duration.ofSeconds(10)).setValue(monFrom);
+        monToTime.shouldBe(visible, Duration.ofSeconds(10)).setValue(monTo);
+
+        // Set Tuesday's hours
+        tueFromTime.shouldBe(visible, Duration.ofSeconds(10)).setValue(tueFrom);
+        tueToTime.shouldBe(visible, Duration.ofSeconds(10)).setValue(tueTo);
+
+        // Set Wednesday's hours
+        wedFromTime.shouldBe(visible, Duration.ofSeconds(10)).setValue(wedFrom);
+        wedToTime.shouldBe(visible, Duration.ofSeconds(10)).setValue(wedTo);
+
+        // Set Thursday's hours
+        thurFromTime.shouldBe(visible, Duration.ofSeconds(10)).setValue(thurFrom);
+        thurToTime.shouldBe(visible, Duration.ofSeconds(10)).setValue(thurTo);
+
+        // Set Friday's hours
+        friFromTime.shouldBe(visible, Duration.ofSeconds(10)).setValue(friFrom);
+        friToTime.shouldBe(visible, Duration.ofSeconds(10)).setValue(friTo);
+    }
+
 }

@@ -1,84 +1,138 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
+import base.Logger;
+import com.codeborne.selenide.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
+import java.time.Duration;
+import java.util.NoSuchElementException;
 
-import static com.codeborne.selenide.Condition.attribute;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class BusinessHour {
-    public SelenideElement inputName = $("#name");
+    public static SelenideElement inputName = $("#name");
 
-    public SelenideElement inputDesc = $("#desc");
-
-    public SelenideElement Tuefromtime = $x("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/form/div[4]/div[2]/div/div[2]/div/div[3]/div/div[2]/div/div[2]/input");
-
-    public SelenideElement TuesdayToTime = $x("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/form/div[4]/div[2]/div/div[2]/div/div[3]/div/div[4]/div/div[2]/input");
-
-    public SelenideElement WedFromTime = $x("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/form/div[4]/div[2]/div/div[2]/div/div[4]/div/div[2]/div/div[2]/input");
-
-    public SelenideElement WebToTime = $x("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/form/div[4]/div[2]/div/div[2]/div/div[4]/div/div[4]/div/div[2]/input");
-
-    public SelenideElement ThurFromTime = $x("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/form/div[4]/div[2]/div/div[2]/div/div[5]/div/div[2]/div/div[2]/input");
-
-    public SelenideElement ThurToTime = $x("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/form/div[4]/div[2]/div/div[2]/div/div[5]/div/div[4]/div/div[2]/input");
-    
-    public SelenideElement FridayFromTime = $x("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/form/div[4]/div[2]/div/div[2]/div/div[6]/div/div[2]/div/div[2]/input");
-
-    public SelenideElement FridayToTime = $x("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/form/div[4]/div[2]/div/div[2]/div/div[6]/div/div[4]/div/div[2]/input");
-
-    public SelenideElement btnSave = $x("//button[@class='gap-x-2 inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:translate-y-[1px] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-white bg-primary-500 hover:bg-primary-700 active:bg-primary-900 disabled:bg-gray-400 disabled:text-gray-100 py-2 px-4 rounded-md text-sm']");
-    public SelenideElement btnCancel = $("button[class='gap-x-2 inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:translate-y-[1px] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-700 hover:bg-primary-25 active:bg-primary-50 disabled:text-primary-200 py-2 px-4 rounded-md border border-gray-300 text-sm']");
-
-    //Delete confirmation dialog
-    public SelenideElement deleteButton = $$(".gap-x-2.inline-flex.items-center.justify-center")
-            .findBy(Condition.text("Delete"));
-
+    public static SelenideElement inputDesc = $("#desc");
     // backup web element -- Start
-
-    public SelenideElement Monfromtime = $x("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/form/div[4]/div[2]/div/div[2]/div/div[2]/div/div[2]/div/div[2]/input");
-    public SelenideElement montotime = $x("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/form/div[4]/div[2]/div/div[2]/div/div[2]/div/div[4]/div/div[2]/input");
-
-    public SelenideElement tuefromtime = $x("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/form/div[4]/div[2]/div/div[2]/div/div[3]/div/div[2]/div/div[2]/input");
-    public SelenideElement Tuetotime = $x("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/form/div[4]/div[2]/div/div[2]/div/div[3]/div/div[4]/div/div[2]/input");
-
-    public SelenideElement Thurfromtime = $x("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/form/div[4]/div[2]/div/div[2]/div/div[5]/div/div[2]/div/div[2]/input");
-    public SelenideElement thurtotime = $x("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/form/div[4]/div[2]/div/div[2]/div/div[5]/div/div[4]/div/div[2]/input");
-
-    public SelenideElement Fridayfromtime = $x("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/form/div[4]/div[2]/div/div[2]/div/div[6]/div/div[2]/div/div[2]/input");
-    public SelenideElement FriTotime = $x("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/form/div[4]/div[2]/div/div[2]/div/div[6]/div/div[4]/div/div[2]/input");
-
-    public SelenideElement buttonSaveChange2 = $("button[class='gap-x-2 inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:translate-y-[1px] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-white bg-primary-500 hover:bg-primary-700 active:bg-primary-900 disabled:bg-gray-400 disabled:text-gray-100 py-2 px-4 rounded-md text-sm']");
-
-    public SelenideElement wedfromtime = $x("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/form/div[4]/div[2]/div/div[2]/div/div[4]/div/div[2]/div/div[2]/input");
-    public SelenideElement wedtotime = $x("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div/div/form/div[4]/div[2]/div/div[2]/div/div[4]/div/div[4]/div/div[2]/input");
-
-
+    // Declare Selenide elements (initialize them with correct locators)
+    public static final SelenideElement monFromTime =$("body > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > form:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > input:nth-child(2)");
+    public static final SelenideElement monToTime = $("body > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > form:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > input:nth-child(2)");
+    public static final SelenideElement tueFromTime =  $("input[name='tue-from-time']");
+    public static final SelenideElement tueToTime = $("input#tue-to-time");
+    public static final SelenideElement wedFromTime = $("input#wed-from-time");
+    public static final SelenideElement wedToTime = $("input#wed-to-time");
+    public static final SelenideElement thurFromTime = $("input#thur-from-time");
+    public static final SelenideElement thurToTime = $("input#thur-to-time");
+    public static final SelenideElement friFromTime = $("input#fri-from-time");
+    public static final SelenideElement friToTime = $("input#fri-to-time");
     // backup web element -- End
 
+    //Delete confirmation dialog
+    public static SelenideElement deleteButton = $$(".gap-x-2.inline-flex.items-center.justify-center")
+            .findBy(text("Delete"));
+
+    // Find start time & end time by div day names -- Start
+    public static void setBusinessHours(String starttime, String endtime)  {
+        String[] days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+        Configuration.timeout = 20000; // Increase default timeout
+
+        // Wait for grid to load with retries
+        boolean gridLoaded = false;
+        int retries = 3;
+       while (retries > 0 && !gridLoaded) {
+            try {
+                Wait().until(webDriver -> $$("div.mt-4.grid").size() > 0);
+                gridLoaded = true;
+            } catch (TimeoutException e) {
+                Logger.logError("Grid not loaded, retrying...");
+                Selenide.sleep(3000); // Retry delay
+                retries--;
+            }
+        }
+
+       if (!gridLoaded) {
+            throw new IllegalStateException("Failed to load grid after retries.");
+        }
+
+        for (String day : days) {
+            Logger.log("Processing row for: " + day);
+
+            try {
+                boolean success = retryInteraction(() -> {
+                    // Locate the day row dynamically
+                    SelenideElement dayRow = $$("div.mt-4.grid").filterBy(Condition.text(day)).first();
+                    if (dayRow == null || !dayRow.exists()) {
+                        throw new NoSuchElementException("Day row not found for: " + day);
+                    }
+
+                    Logger.log("Found row for " + day);
+
+                    // Locate and interact with time inputs
+                    ElementsCollection timeInputs = dayRow.$$("input[type='time']");
+                    Logger.log("Number of time inputs found for " + day + ": " + timeInputs.size());
+
+                    if (timeInputs.size() < 2) {
+                        throw new IndexOutOfBoundsException("Expected at least 2 time inputs, found: " + timeInputs.size());
+                    }
+                    timeInputs.get(0).shouldBe(Condition.visible, Duration.ofSeconds(30)).setValue(starttime);
+                    timeInputs.get(1).shouldBe(Condition.visible, Duration.ofSeconds(30)).setValue(endtime);
+                });
+
+                if (!success) {
+                    Logger.logError("Failed to process row for: " + day);
+                }
+            } catch (IndexOutOfBoundsException e) {
+                Logger.logError("IndexOutOfBoundsException for " + day + ": " + e.getMessage());
+                // Continue to the next day
+            } catch (NoSuchElementException e) {
+                Logger.logError("NoSuchElementException for " + day + ": " + e.getMessage());
+                // Continue to the next day
+            } catch (Exception e) {
+                Logger.logError("Unexpected error while processing " + day + ": " + e.getMessage());
+                // Continue to the next day
+            }
+        }
+    }
+
+    private static boolean retryInteraction(Runnable interaction) {
+        int retries = 3;
+        while (retries > 0) {
+            try {
+                interaction.run();
+                return true; // Success, exit loop
+            } catch (StaleElementReferenceException e) {
+                Logger.logError("Stale element detected. Retrying...");
+                Selenide.sleep(2000); // Wait before retrying
+                retries--;
+            } catch (NoSuchElementException e) {
+                Logger.logError("Element not found during interaction: " + e.getMessage());
+                return false; // Abort retries for missing element
+            }
+        }
+        return false; // All retries failed
+    }
+
+    // Find start time & end time by div day names -- End
+
     //Inside/Outside business hour  -- Start
-    public void clickThreeDots(String businessHourName) {
+    public static void clickThreeDots(String businessHourName) {
         $(By.xpath("//p[contains(text(), '" + businessHourName + "')]/ancestor::div[contains(@class, 'w-4/6')]/following-sibling::div//button"))
-                .shouldBe(visible)
+                .shouldBe(visible, Duration.ofSeconds(60))
                 .click();
     }
 
-    public void clickEditOption() {
+    public static void clickEditOption() {
         $(By.xpath("//span[text()='Edit']"))
                 .shouldBe(visible)
                 .click();
     }
 
-    public void clickDeleteOption() {
+    public static void clickDeleteOption() {
         $(By.xpath("//span[text()='Delete']"))
                 .shouldBe(visible)
                 .click();
     }
     //Inside/Outside business hour -- End
-    
-    //Holiday datetime picker -- Start
-    public SelenideElement datetimepicker = $("html > body > div:nth-of-type(3) > div > div > div > div > table > tbody > tr:nth-of-type(3) > td:nth-of-type(5)");
-    //Holiday datetime picker -- End
 }
