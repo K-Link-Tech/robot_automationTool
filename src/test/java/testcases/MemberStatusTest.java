@@ -34,7 +34,6 @@ public class MemberStatusTest extends TestBase {
     public void insertMemberStatus() throws InterruptedException {
         // Maximize the window
         Selenide.webdriver().driver().getWebDriver().manage().window().maximize();
-
         MemberStatus.showMenu.click();
         MemberStatus.settingMenu.click();
         MemberStatus.memberStatusMenu.click();
