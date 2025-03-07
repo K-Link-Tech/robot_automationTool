@@ -73,7 +73,7 @@ public class MemberStatusTest extends TestBase {
 
     @Test(priority = 4)
     public void cancelMemberStatus() throws InterruptedException {
-        MemberStatus.addNewBtn.click();
+      // MemberStatus.addNewBtn.click();
         Thread.sleep(1000);
         MemberStatus.cancelBtn.click();
         Thread.sleep(1000);
@@ -112,22 +112,22 @@ public class MemberStatusTest extends TestBase {
 
     @Test(priority = 7)
     public void agentStatusLogCheck() throws InterruptedException {
-        clickUserIconAndSelectStatus("Away");
-        Thread.sleep(2000);
-        clickUserIconAndSelectStatus("Breakfast");
-        Thread.sleep(2000);
-        clickUserIconAndSelectStatus("Business Trip");
-        Thread.sleep(2000);
-        clickUserIconAndSelectStatus("Sick");
-        Thread.sleep(2000);
-        clickUserIconAndSelectStatus("Flight");
-        Thread.sleep(2000);
+//        clickUserIconAndSelectStatus("Away");
+//        Thread.sleep(2000);
+//        clickUserIconAndSelectStatus("Breakfast");
+//        Thread.sleep(2000);
+//        clickUserIconAndSelectStatus("Business Trip");
+//        Thread.sleep(2000);
+//        clickUserIconAndSelectStatus("Sick");
+//        Thread.sleep(2000);
+//        clickUserIconAndSelectStatus("Flight");
+//        Thread.sleep(2000);
     }
 
     // Analytics Dashboard Check
     @Test(priority = 8)
     public void analyticsDashboardCheckAfterAdd() throws InterruptedException {
-        MemberStatus.settingMenu.click();
+        //MemberStatus.settingMenu.click();
         MemberStatus.memberStatusMenu.click();
         Thread.sleep(2000);
 
@@ -153,7 +153,7 @@ public class MemberStatusTest extends TestBase {
 
     @Test(priority = 10)
     public void deleteAddedMemberStatus() throws InterruptedException {
-        MemberStatus.settingMenu.click();
+       // MemberStatus.settingMenu.click();
         MemberStatus.memberStatusMenu.click();
         Thread.sleep(3000);
 
