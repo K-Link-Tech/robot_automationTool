@@ -30,14 +30,14 @@ public class MemberStatusTest extends TestBase {
         Selenide.closeWebDriver();
     }
 
-    @Test
+    @Test(priority = 1)
     public void insertMemberStatus() throws InterruptedException {
         // Maximize the window
         Selenide.webdriver().driver().getWebDriver().manage().window().maximize();
        // MemberStatus.showMenu.click();
         MemberStatus.settingMenu.click();
         MemberStatus.memberStatusMenu.click();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         // add member status
         addMemberStatus("ramen", "Lunch Test","Take a break for meal",false,true);
         addMemberStatus("grin", "Off Work Test","Can receive Only Call notifications",true,true);
@@ -59,19 +59,19 @@ public class MemberStatusTest extends TestBase {
         Thread.sleep(3000);
     }
 //testing
-    @Test(dependsOnMethods = "insertMemberStatus")
+    @Test(priority = 2)
     public void searchAddedMemberStatus() throws InterruptedException {
         searchMemberStatus("Sick Leave Test");
     }
 
-    @Test(dependsOnMethods = "searchAddedMemberStatus")
+    @Test(priority = 3)
     public void editMemberStatusTest() throws InterruptedException {
         addMemberStatus("innocent","Edit Test","Ah shit here we go again",true,true);
         editMemberStatus("Edit Test","Update edit Test","Edit Ah shit here we go again",false,false);
         searchMemberStatus("Update edit Test");
     }
 
-    @Test(dependsOnMethods = "editMemberStatusTest")
+    @Test(priority = 4)
     public void cancelMemberStatus() throws InterruptedException {
         MemberStatus.addNewBtn.click();
         Thread.sleep(1000);
@@ -79,19 +79,23 @@ public class MemberStatusTest extends TestBase {
         Thread.sleep(1000);
     }
 
-    @Test(dependsOnMethods = "cancelMemberStatus")
+    @Test(priority = 5)
     public void updateMemberStatusNameAndCheckProfile() throws InterruptedException {
         clickUserIconAndSelectStatus("Lunch Test");
         Thread.sleep(2000);
+
+        //update status description in member status and then verify updated status in profile
         updateMemberStatusName("Lunch Test","Work Lunch Test");
         MemberStatus.userIcon.click();
         Thread.sleep(5000);
+
+        //update emoji in member status and then verify updated emoji in profile
         updateEmoji("Work Lunch Test","heart eyes");
         MemberStatus.userIcon.click();
         Thread.sleep(5000);
     }
 
-    @Test(dependsOnMethods = "updateMemberStatusNameAndCheckProfile")
+    @Test(priority = 6)
     public void agentStatusCheck() throws InterruptedException {
         MemberStatus.agentStatusMenu.click();
         Thread.sleep(1000);
@@ -100,13 +104,13 @@ public class MemberStatusTest extends TestBase {
         MemberStatus.onVacationTest.click();
         clickUserIconAndSelectStatus("Meeting");
         Thread.sleep(10000);
-        // Check Status LogHistory
+        // Check Agent status logs record
         MemberStatus.reportingMenu.click();
         MemberStatus.agentStatusLogMenu.click();
         Thread.sleep(5000);
     }
 
-    @Test(dependsOnMethods = "agentStatusCheck")
+    @Test(priority = 7)
     public void agentStatusLogCheck() throws InterruptedException {
         clickUserIconAndSelectStatus("Away");
         Thread.sleep(2000);
@@ -121,8 +125,8 @@ public class MemberStatusTest extends TestBase {
     }
 
     // Analytics Dashboard Check
-    @Test(dependsOnMethods = "agentStatusLogCheck")
-    public void analyticsDashboardCheck() throws InterruptedException {
+    @Test(priority = 8)
+    public void analyticsDashboardCheckAfterAdd() throws InterruptedException {
         MemberStatus.settingMenu.click();
         MemberStatus.memberStatusMenu.click();
         Thread.sleep(2000);
@@ -132,7 +136,11 @@ public class MemberStatusTest extends TestBase {
 
         // check member status in Analytics Dashboard
         checkAnalyticsDashboard("misssaw thiri");
+    }
 
+    @Test(priority = 9)
+    public void VerifyAnalyticsDashboardAfterDelete() throws InterruptedException
+    {
         // delete added status
         MemberStatus.settingMenu.click();
         MemberStatus.memberStatusMenu.click();
@@ -143,7 +151,7 @@ public class MemberStatusTest extends TestBase {
         checkAnalyticsDashboard("misssaw thiri");
     }
 
-    @Test(dependsOnMethods = "analyticsDashboardCheck")
+    @Test(priority = 10)
     public void deleteAddedMemberStatus() throws InterruptedException {
         MemberStatus.settingMenu.click();
         MemberStatus.memberStatusMenu.click();
@@ -176,7 +184,8 @@ public class MemberStatusTest extends TestBase {
         deleteMemberStatus("Day shift Test");
     }
 
-    @Test(dependsOnMethods = "deleteAddedMemberStatus")
+   // @Test(dependsOnMethods = "deleteAddedMemberStatus")
+    @Test(priority = 11)
     public void checkMemberStatusPhoneCall() throws InterruptedException {
         MemberStatus.settingMenu.click();
         MemberStatus.memberStatusMenu.click();
@@ -224,7 +233,6 @@ public class MemberStatusTest extends TestBase {
 
         if (chatMessage)
             MemberStatus.editReceiveChatMessage.click();
-
         MemberStatus.updateBtn.click();
         Thread.sleep(3000);
     }
