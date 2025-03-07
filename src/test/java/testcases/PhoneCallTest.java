@@ -7,7 +7,6 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import pages.PhoneCall;
-
 public class PhoneCallTest extends TestBase {
     private PhoneCall PhoneCall;
 //saw
