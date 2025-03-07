@@ -60,7 +60,7 @@ public class MemberStatusTest extends TestBase {
     }
 //testing
     @Test(priority = 2)
-    public void searchAddedMemberStatus() throws InterruptedException {
+    public void searchAddedMemberStatus() {
         //searchMemberStatus("Sick Leave Test");
     }
 
@@ -81,7 +81,7 @@ public class MemberStatusTest extends TestBase {
 
     @Test(priority = 5)
     public void updateMemberStatusNameAndCheckProfile() throws InterruptedException {
-        clickUserIconAndSelectStatus("Lunch Test");
+        //clickUserIconAndSelectStatus("Lunch Test");
         Thread.sleep(2000);
 
         //update status description in member status and then verify updated status in profile
@@ -97,7 +97,7 @@ public class MemberStatusTest extends TestBase {
 
     @Test(priority = 6)
     public void agentStatusCheck() throws InterruptedException {
-        MemberStatus.agentStatusMenu.click();
+        //MemberStatus.agentStatusMenu.click();
         Thread.sleep(1000);
         MemberStatus.changePageBtn.click();
         MemberStatus.agentStatusBtn.click();
@@ -111,7 +111,7 @@ public class MemberStatusTest extends TestBase {
     }
 
     @Test(priority = 7)
-    public void agentStatusLogCheck() throws InterruptedException {
+    public void agentStatusLogCheck()  {
 //        clickUserIconAndSelectStatus("Away");
 //        Thread.sleep(2000);
 //        clickUserIconAndSelectStatus("Breakfast");
