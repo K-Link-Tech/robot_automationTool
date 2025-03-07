@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9b9a20b-e80c-401e-8f56-e5c539c9f181" name="Changes" comment="commit Nov 29,2024 by SawThiriNaing.&#10;Module Name: Full Business Hour automation">
-      <change afterPath="$PROJECT_DIR$/Test Results - _Users_macbookpro_AquaProjects_klinkcloud_testng_xml_2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/base/Logger.java" afterDir="false" />
+    <list default="true" id="c9b9a20b-e80c-401e-8f56-e5c539c9f181" name="Changes" comment="commit March 06.2025 by Saw Thi Ri Naing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test Results - _Users_macbookpro_AquaProjects_klinkcloud_testng_xml.html" beforeDir="false" afterPath="$PROJECT_DIR$/Test Results - _Users_macbookpro_AquaProjects_klinkcloud_testng_xml.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/base/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/TestBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/BusinessHour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/BusinessHour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test Results - _Users_macbookpro_AquaProjects_klinkcloud_testng_xml.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test Results - _Users_macbookpro_AquaProjects_klinkcloud_testng_xml_2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testcases/BusinessHourTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testcases/BusinessHourTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testcases/LoginPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testcases/LoginPageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessHour.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +28,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
@@ -56,35 +57,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JavaScript Debug.htmltest.html.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;TestNG./Users/macbookpro/AquaProjects/klinkcloud/testng.xml.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.BusinessHourTest.AddBusinessHr.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.LoginPageTest.LoginQA.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.LoginPageTest.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/macbookpro/AquaProjects/klinkcloud&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.build.tools.auto.reload&quot;: &quot;ALL&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;web.inspector.settings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.htmltest.html.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "TestNG./Users/macbookpro/AquaProjects/klinkcloud/testng.xml.executor": "Run",
+    "TestNG.BusinessHourTest.AddBusinessHr.executor": "Run",
+    "TestNG.D:/klinkcloud/BusinessHour.xml.executor": "Run",
+    "TestNG.D:/klinkcloud/MemberStatus.xml.executor": "Run",
+    "TestNG.LoginPageTest.LoginQA.executor": "Run",
+    "TestNG.LoginPageTest.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/macbookpro/AquaProjects/klinkcloud",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.build.tools.auto.reload": "ALL",
+    "settings.editor.selected.configurable": "web.inspector.settings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG./Users/macbookpro/AquaProjects/klinkcloud/testng.xml">
+  <component name="RunManager" selected="TestNG.D:/klinkcloud/BusinessHour.xml">
     <configuration name="htmltest.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/klinkcloud/htmltest.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -106,35 +110,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginPageTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="D:/klinkcloud/BusinessHour.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="klinkcloud" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="testcases.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="testcases" />
-      <option name="MAIN_CLASS_NAME" value="testcases.LoginPageTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/BusinessHour.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginPageTest.LoginQA" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="D:/klinkcloud/MemberStatus.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="klinkcloud" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="testcases.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="testcases" />
-      <option name="MAIN_CLASS_NAME" value="testcases.LoginPageTest" />
-      <option name="METHOD_NAME" value="LoginQA" />
-      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/MemberStatus.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
       <method v="2">
@@ -153,11 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.D:/klinkcloud/BusinessHour.xml" />
+        <item itemvalue="TestNG.D:/klinkcloud/MemberStatus.xml" />
         <item itemvalue="TestNG./Users/macbookpro/AquaProjects/klinkcloud/testng.xml" />
         <item itemvalue="TestNG.BusinessHourTest.AddBusinessHr" />
         <item itemvalue="JavaScript Debug.htmltest.html" />
-        <item itemvalue="TestNG.LoginPageTest.LoginQA" />
-        <item itemvalue="TestNG.LoginPageTest" />
       </list>
     </recent_temporary>
   </component>
@@ -199,7 +188,79 @@
       <option name="project" value="LOCAL" />
       <updated>1731423187545</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="commit March 03.2025 by Saw Thi Ri Naing&#10;MemberStatusTest.java">
+      <option name="closed" value="true" />
+      <created>1741050039036</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1741050039036</updated>
+    </task>
+    <task id="LOCAL-00005" summary="commit March 03.2025 by Saw Thi Ri Naing&#10;OldFlowTelephonyTest.java">
+      <option name="closed" value="true" />
+      <created>1741050069034</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1741050069034</updated>
+    </task>
+    <task id="LOCAL-00006" summary="commit March 03.2025 by Saw Thi Ri Naing">
+      <option name="closed" value="true" />
+      <created>1741052000091</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1741052000091</updated>
+    </task>
+    <task id="LOCAL-00007" summary="commit March 03.2025 by Saw Thi Ri Naing">
+      <option name="closed" value="true" />
+      <created>1741052019502</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1741052019502</updated>
+    </task>
+    <task id="LOCAL-00008" summary="commit March 03.2025 by Saw Thi Ri Naing">
+      <option name="closed" value="true" />
+      <created>1741052051885</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1741052051885</updated>
+    </task>
+    <task id="LOCAL-00009" summary="commit March 06.2025 by Saw Thi Ri Naing">
+      <option name="closed" value="true" />
+      <created>1741325548424</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1741325548424</updated>
+    </task>
+    <task id="LOCAL-00010" summary="commit March 06.2025 by Saw Thi Ri Naing">
+      <option name="closed" value="true" />
+      <created>1741325684415</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1741325684415</updated>
+    </task>
+    <task id="LOCAL-00011" summary="commit March 06.2025 by Saw Thi Ri Naing">
+      <option name="closed" value="true" />
+      <created>1741325722485</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1741325722485</updated>
+    </task>
+    <task id="LOCAL-00012" summary="commit March 06.2025 by Saw Thi Ri Naing">
+      <option name="closed" value="true" />
+      <created>1741325765624</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1741325765624</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +281,11 @@
     <MESSAGE value="second commit" />
     <MESSAGE value="Test case 11 all success" />
     <MESSAGE value="commit Nov 29,2024 by SawThiriNaing.&#10;Module Name: Full Business Hour automation" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit Nov 29,2024 by SawThiriNaing.&#10;Module Name: Full Business Hour automation" />
+    <MESSAGE value="commit March 03.2025 by Saw Thi Ri Naing&#10;MemberStatusTest.java" />
+    <MESSAGE value="commit March 03.2025 by Saw Thi Ri Naing&#10;OldFlowTelephonyTest.java" />
+    <MESSAGE value="commit March 03.2025 by Saw Thi Ri Naing" />
+    <MESSAGE value="commit March 06.2025 by Saw Thi Ri Naing" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit March 06.2025 by Saw Thi Ri Naing" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
