@@ -8,8 +8,6 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import pages.PhoneCall;
 
-import static com.codeborne.selenide.Selenide.open;
-
 public class PhoneCallTest extends TestBase {
     private PhoneCall PhoneCall;
 //saw
