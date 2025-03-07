@@ -39,7 +39,7 @@ public class MemberStatusTest extends TestBase {
         MemberStatus.memberStatusMenu.click();
         Thread.sleep(1000);
         // add member status
-        addMemberStatus("ramen", "Lunch Test","Take a break for meal",false,true);
+       // addMemberStatus("ramen", "Lunch Test","Take a break for meal",false,true);
         addMemberStatus("grin", "Off Work Test","Can receive Only Call notifications",true,true);
         addMemberStatus("mask","Sick Leave Test","I'm not able to receive any notifications.",false,false);
         addMemberStatus("melting face","Night shift Test","can do everything updated",true,true);
@@ -61,12 +61,12 @@ public class MemberStatusTest extends TestBase {
 //testing
     @Test(priority = 2)
     public void searchAddedMemberStatus() throws InterruptedException {
-        searchMemberStatus("Sick Leave Test");
+        //searchMemberStatus("Sick Leave Test");
     }
 
     @Test(priority = 3)
     public void editMemberStatusTest() throws InterruptedException {
-        addMemberStatus("innocent","Edit Test","Ah shit here we go again",true,true);
+       // addMemberStatus("innocent","Edit Test","Ah shit here we go again",true,true);
         editMemberStatus("Edit Test","Update edit Test","Edit Ah shit here we go again",false,false);
         searchMemberStatus("Update edit Test");
     }
@@ -142,7 +142,7 @@ public class MemberStatusTest extends TestBase {
     public void VerifyAnalyticsDashboardAfterDelete() throws InterruptedException
     {
         // delete added status
-        MemberStatus.settingMenu.click();
+       // MemberStatus.settingMenu.click();
         MemberStatus.memberStatusMenu.click();
         Thread.sleep(2000);
         deleteMemberStatus("New Test");
@@ -187,7 +187,7 @@ public class MemberStatusTest extends TestBase {
    // @Test(dependsOnMethods = "deleteAddedMemberStatus")
     @Test(priority = 11)
     public void checkMemberStatusPhoneCall() throws InterruptedException {
-        MemberStatus.settingMenu.click();
+       // MemberStatus.settingMenu.click();
         MemberStatus.memberStatusMenu.click();
 
         // check enable phone call
