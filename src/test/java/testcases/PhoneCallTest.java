@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 import pages.PhoneCall;
 public class PhoneCallTest extends TestBase {
     private PhoneCall PhoneCall;
-//saw
     @BeforeSuite
     public void setUp() {
         // Set up ChromeOptions for each test method to run in isolation
